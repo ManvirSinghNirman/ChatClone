@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class CollectionViewChatVC: UIViewController {
     
@@ -33,6 +34,14 @@ class CollectionViewChatVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         registerKeyboardNoti()
+    }
+    
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(true)
+        
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
+        
     }
     
     func setUserInfo(){
@@ -131,6 +140,7 @@ class CollectionViewChatVC: UIViewController {
     
     @objc func btnAttachment(_ sender: UIButton){
         
+        newInputContainerView.txtView.resignFirstResponder()
         imagePicker.present(from: sender)
     }
     
@@ -150,6 +160,7 @@ class CollectionViewChatVC: UIViewController {
         }) { (Finished) in
             
             self.scrollWithDelay(time: 0, indexPath: indexPath)
+            AudioServicesPlaySystemSound (1004)
             self.newInputContainerView.txtView.text = ""
             self.newInputContainerView.txtView.textDidChange()
         }
@@ -170,13 +181,13 @@ class CollectionViewChatVC: UIViewController {
     
     func registerKeyboardNoti(){
         
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow),
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChangeFrames),
                                                name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
         
         
     }
     
-    @objc func keyboardWillShow(_ notification: Notification) {
+    @objc func keyboardWillChangeFrames(_ notification: Notification) {
         if let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
             let keyboardRectangle = keyboardFrame.cgRectValue
             let keyboardHeight = keyboardRectangle.height
@@ -184,9 +195,8 @@ class CollectionViewChatVC: UIViewController {
             collectionView.contentInset = insets
             collectionView.scrollIndicatorInsets = insets
             let difference = keyboardHeight - oldKeyboardHeight
-            
             if difference > 0 {
-                
+                //Helps to maintain scroll position when keyboard height change
                 self.collectionView.contentOffset = CGPoint.init(x: 0, y: self.collectionView.contentOffset.y + difference)
                 
             }
@@ -199,7 +209,7 @@ class CollectionViewChatVC: UIViewController {
 }
 
 
-//MARK : Tableview Datasource Methods
+//MARK: Tableview Datasource Methods
 
 extension CollectionViewChatVC :UICollectionViewDataSource {
     
@@ -303,7 +313,7 @@ extension CollectionViewChatVC :UICollectionViewDataSource {
 }
 
 
-//MARK : Tableview Delegate Methods
+//MARK: Tableview Delegate Methods
 extension CollectionViewChatVC :UICollectionViewDelegate,UICollectionViewDelegateFlowLayout{
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -355,8 +365,7 @@ extension CollectionViewChatVC :UICollectionViewDelegate,UICollectionViewDelegat
     
 }
 
-//MARK :Image Picker
-
+//MARK: Image Picker
 extension CollectionViewChatVC :ImagePickerDelegate {
     
     func didSelect(image: UIImage?) {
@@ -374,7 +383,7 @@ extension CollectionViewChatVC :ImagePickerDelegate {
         }
         
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
             self.sendDummyImageMessage()
         }
     
