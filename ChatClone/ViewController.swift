@@ -113,9 +113,16 @@ extension ViewController :UITableViewDataSource {
 extension ViewController :UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let vc = storyboard?.instantiateViewController(withIdentifier: "CollectionViewChatVC") as? CollectionViewChatVC {
-            vc.userInfo = arrayUsers[indexPath.row]
-            navigationController?.pushViewController(vc, animated: true)
+        if indexPath.row % 2 == 0 {
+            if let vc = storyboard?.instantiateViewController(withIdentifier: "TableViewChat") as? TableViewChat {
+                vc.userInfo = arrayUsers[indexPath.row]
+                navigationController?.pushViewController(vc, animated: true)
+            }
+        }else{
+            if let vc = storyboard?.instantiateViewController(withIdentifier: "CollectionViewChatVC") as? CollectionViewChatVC {
+                vc.userInfo = arrayUsers[indexPath.row]
+                navigationController?.pushViewController(vc, animated: true)
+            }
         }
     }
     

@@ -8,7 +8,7 @@
 
 import UIKit
 
-public protocol ImagePickerDelegate: class {
+public protocol ImagePickerDelegate {
     func didSelect(image: UIImage?)
 }
 
@@ -16,7 +16,7 @@ open class ImagePicker: NSObject {
     
     private let pickerController: UIImagePickerController
     private weak var presentationController: UIViewController?
-    private weak var delegate: ImagePickerDelegate?
+    private  var delegate: ImagePickerDelegate?
     
     public init(presentationController: UIViewController, delegate: ImagePickerDelegate,allowEdit:Bool) {
         self.pickerController = UIImagePickerController()

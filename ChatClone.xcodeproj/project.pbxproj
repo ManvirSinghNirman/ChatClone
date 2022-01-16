@@ -22,6 +22,9 @@
 		059A8F1F2469BC8D00E24890 /* Empty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059A8F1C2469BC8D00E24890 /* Empty.swift */; };
 		059A8F202469BC8D00E24890 /* FlexibleTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059A8F1D2469BC8D00E24890 /* FlexibleTextView.swift */; };
 		05B9569F2469C56300D62788 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B9569E2469C56300D62788 /* ImagePicker.swift */; };
+		5327DAA92793811E0038B063 /* TableViewChat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5327DAA82793811E0038B063 /* TableViewChat.swift */; };
+		5327DAAB27938E4A0038B063 /* TableViewHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5327DAAA27938E4A0038B063 /* TableViewHeader.xib */; };
+		5327DAAD27938E580038B063 /* TableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5327DAAC27938E580038B063 /* TableViewHeader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +45,9 @@
 		059A8F1C2469BC8D00E24890 /* Empty.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Empty.swift; sourceTree = "<group>"; };
 		059A8F1D2469BC8D00E24890 /* FlexibleTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlexibleTextView.swift; sourceTree = "<group>"; };
 		05B9569E2469C56300D62788 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		5327DAA82793811E0038B063 /* TableViewChat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewChat.swift; sourceTree = "<group>"; };
+		5327DAAA27938E4A0038B063 /* TableViewHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewHeader.xib; sourceTree = "<group>"; };
+		5327DAAC27938E580038B063 /* TableViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewHeader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +88,7 @@
 				059A8EF02469BBCC00E24890 /* SceneDelegate.swift */,
 				059A8F022469BBF200E24890 /* ViewController.swift */,
 				059A8F032469BBF200E24890 /* CollectionViewChatVC.swift */,
+				5327DAA82793811E0038B063 /* TableViewChat.swift */,
 				059A8F0A2469BC1800E24890 /* Assets.xcassets */,
 				059A8F0C2469BC3400E24890 /* Main.storyboard */,
 				059A8EF92469BBCD00E24890 /* LaunchScreen.storyboard */,
@@ -104,6 +111,8 @@
 			children = (
 				059A8F152469BC8300E24890 /* CollectionViewHeader.swift */,
 				059A8F142469BC8300E24890 /* CollectionViewHeader.xib */,
+				5327DAAA27938E4A0038B063 /* TableViewHeader.xib */,
+				5327DAAC27938E580038B063 /* TableViewHeader.swift */,
 			);
 			path = Header;
 			sourceTree = "<group>";
@@ -153,7 +162,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1130;
-				LastUpgradeCheck = 1130;
+				LastUpgradeCheck = 1310;
 				ORGANIZATIONNAME = "Manvir Singh";
 				TargetAttributes = {
 					059A8EEA2469BBCC00E24890 = {
@@ -184,6 +193,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5327DAAB27938E4A0038B063 /* TableViewHeader.xib in Resources */,
 				059A8F182469BC8300E24890 /* CollectionViewHeader.xib in Resources */,
 				059A8EFB2469BBCD00E24890 /* LaunchScreen.storyboard in Resources */,
 				059A8F0B2469BC1800E24890 /* Assets.xcassets in Resources */,
@@ -199,8 +209,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5327DAAD27938E580038B063 /* TableViewHeader.swift in Sources */,
 				059A8F052469BBF300E24890 /* ViewController.swift in Sources */,
 				059A8F192469BC8300E24890 /* CollectionViewHeader.swift in Sources */,
+				5327DAA92793811E0038B063 /* TableViewChat.swift in Sources */,
 				059A8F202469BC8D00E24890 /* FlexibleTextView.swift in Sources */,
 				059A8F062469BBF300E24890 /* CollectionViewChatVC.swift in Sources */,
 				059A8F122469BC7200E24890 /* Chat.swift in Sources */,
@@ -252,6 +264,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -312,6 +325,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -345,7 +359,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = J4PR7R3HL7;
+				DEVELOPMENT_TEAM = 8V7H5W9PS2;
 				INFOPLIST_FILE = ChatClone/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -363,7 +377,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = J4PR7R3HL7;
+				DEVELOPMENT_TEAM = 8V7H5W9PS2;
 				INFOPLIST_FILE = ChatClone/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
